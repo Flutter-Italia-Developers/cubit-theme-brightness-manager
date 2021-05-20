@@ -10,8 +10,8 @@ class ThemeCubit extends Cubit<ThemeState> {
       : super(
           ThemeState(
             themeMode: AppTheme.currentSystemBrightness == Brightness.light
-                ? ThemeMode.dark
-                : ThemeMode.light,
+                ? ThemeMode.light
+                : ThemeMode.dark,
           ),
         );
 

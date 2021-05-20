@@ -1,0 +1,23 @@
+name: bloc_test_app
+description: A Flutter Bloc Architecture project.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.13.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  bloc: ^7.0.0
+  cupertino_icons: ^1.0.0
+  flutter_bloc: ^7.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

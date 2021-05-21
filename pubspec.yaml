@@ -1,4 +1,4 @@
-name: bloc_test_app
+name: cubit_theme_brightness_manager
 description: A Flutter Bloc Architecture project.
 
 publish_to: "none"
@@ -11,9 +11,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bloc: ^7.0.0
   cupertino_icons: ^1.0.0
   flutter_bloc: ^7.0.0
+  pedantic: ^1.11.0
 
 dev_dependencies:
   flutter_test:

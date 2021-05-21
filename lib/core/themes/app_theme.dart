@@ -23,12 +23,10 @@ class AppTheme {
     visualDensity: VisualDensity.adaptivePlatformDensity,
   );
 
-  static setStatusBarAndNavigationBarColors(ThemeMode themeMode) {
+  static void setStatusBarAndNavigationBarColors(ThemeMode themeMode) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarBrightness:
-          themeMode == ThemeMode.light ? Brightness.light : Brightness.dark,
-      statusBarIconBrightness:
-          themeMode == ThemeMode.light ? Brightness.light : Brightness.dark,
+      statusBarBrightness: themeMode == ThemeMode.light ? Brightness.light : Brightness.dark,
+      statusBarIconBrightness: themeMode == ThemeMode.light ? Brightness.light : Brightness.dark,
     ));
   }
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:bloc_test_app/logic/cubit/theme_cubit.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:cubit_theme_brightness_manager/logic/cubit/theme_cubit.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -19,7 +21,7 @@ class HomeScreen extends StatelessWidget {
         },
         label: Row(
           children: [
-            Text("Change theme"),
+            Text('Change theme'),
             SizedBox(width: 8),
             Icon(Icons.format_paint),
           ],

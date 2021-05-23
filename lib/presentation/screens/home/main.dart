@@ -1,8 +1,9 @@
+import 'package:cubit_theme_brightness_manager/core/themes/app_theme.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:cubit_theme_brightness_manager/logic/cubit/theme_cubit.dart';
+import 'package:cubit_theme_brightness_manager/logic/theme/theme_cubit.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -17,7 +18,8 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          context.read<ThemeCubit>().updateAppTheme(Theme.of(context).brightness);
+          var nextBrightness = Theme.of(context).brightness == Brightness.light ? Brightness.dark : Brightness.light;
+          context.read<ThemeCubit>().updateAppTheme(nextBrightness);
         },
         label: Row(
           children: [

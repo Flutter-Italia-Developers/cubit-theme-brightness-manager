@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:cubit_theme_brightness_manager/logic/cubit/theme_cubit.dart';
-import 'package:cubit_theme_brightness_manager/presentation/screens/home_screen/home_screen.dart';
+import 'package:cubit_theme_brightness_manager/logic/theme/theme_cubit.dart';
+import 'package:cubit_theme_brightness_manager/presentation/screens/home/main.dart';
 
 import 'core/themes/app_theme.dart';
 
@@ -21,7 +21,24 @@ class App extends StatelessWidget {
   }
 }
 
-class AppContent extends StatelessWidget {
+class AppContent extends StatefulWidget {
+  @override
+  _AppContentState createState() => _AppContentState();
+}
+
+class _AppContentState extends State<AppContent> with WidgetsBindingObserver {
+  @override
+  void initState() {
+    WidgetsBinding.instance!.addObserver(this);
+    super.initState();
+  }
+
+  @override
+  void didChangePlatformBrightness() {
+    context.read<ThemeCubit>().updateAppTheme(AppTheme.currentSystemBrightness);
+    super.didChangePlatformBrightness();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,5 +48,11 @@ class AppContent extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     );
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance!.removeObserver(this);
+    super.dispose();
   }
 }

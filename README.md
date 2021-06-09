@@ -1,3 +1,8 @@
-A simple project that lets you to switch between light and dark theme using a Cubit.
+Questo progetto e' una base per qualsiasi app voglia gestire il cambio tra tema chiare e scuro.
 
-The theme is defined in `/core/themes/app_theme.dart`. You can define your custom theme palette and override the one provided in the file.
+Esistono 3 modi per cambiare tema:
+- Cliccare su un bottone per passare da chiaro a scuro e viceversa
+- Uno dropdown menu per decidere tra chiaro/scuro/predefinito di sistema
+- Cambiare il tema nelle impostazioni del vostro dispositivo
+
+I colori del tema sono definiti in `/core/themes/app_theme.dart` e possono essere cambiati in base al vostro gusto.

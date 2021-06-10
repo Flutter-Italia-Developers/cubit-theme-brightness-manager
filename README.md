@@ -5,4 +5,6 @@ Esistono 3 modi per cambiare tema:
 - Uno dropdown menu per decidere tra chiaro/scuro/predefinito di sistema
 - Cambiare il tema nelle impostazioni del vostro dispositivo
 
+Grazie ad HydratedBloc, il tema scelto viene salvato e applicato alla riapertura dell'app.  
+
 I colori del tema sono definiti in `/core/themes/app_theme.dart` e possono essere cambiati in base al vostro gusto.

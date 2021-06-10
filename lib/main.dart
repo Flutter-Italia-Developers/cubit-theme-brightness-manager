@@ -1,21 +1,34 @@
+import 'package:cubit_theme_brightness_manager/logic/theme_dropdown/theme_dropdown_cubit.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:cubit_theme_brightness_manager/logic/theme/theme_cubit.dart';
 import 'package:cubit_theme_brightness_manager/presentation/screens/home/main.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 
 import 'core/themes/app_theme.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  HydratedBloc.storage = await HydratedStorage.build(storageDirectory: await getApplicationDocumentsDirectory());
+
   runApp(App());
 }
 
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ThemeCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ThemeDropdownCubit>(
+          create: (context) => ThemeDropdownCubit(),
+        ),
+        BlocProvider<ThemeCubit>(
+          create: (context) => ThemeCubit(themeDropdownStream: context.read<ThemeDropdownCubit>().stream),
+        ),
+      ],
       child: AppContent(),
     );
   }
@@ -35,7 +48,7 @@ class _AppContentState extends State<AppContent> with WidgetsBindingObserver {
 
   @override
   void didChangePlatformBrightness() {
-    context.read<ThemeCubit>().updateAppTheme(AppTheme.currentSystemBrightness);
+    context.read<ThemeCubit>().updateAppThemeByOSSetting();
     super.didChangePlatformBrightness();
   }
 

@@ -30,6 +30,6 @@ class AppTheme {
     ));
   }
 
-  static Brightness get currentSystemBrightness =>
-      SchedulerBinding.instance?.window.platformBrightness ?? Brightness.dark;
+  static ThemeMode get currentSystemThemeMode =>
+      SchedulerBinding.instance?.window.platformBrightness == Brightness.light ? ThemeMode.light : ThemeMode.dark;
 }
